@@ -116,7 +116,7 @@ More projects: [github.com/sarthak425](https://github.com/sarthak425)
 ## Contribution Snake
 
 <p align="center">
-  <img src="https://github.com/sarthak425/sarthak425/blob/output/github-contribution-grid-snake.svg" alt="Contribution snake" />
+  <img src="https://raw.githubusercontent.com/sarthak425/sarthak425/output/github-contribution-grid-snake.svg" alt="Contribution snake" />
 </p>
 
 ---
