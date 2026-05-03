@@ -75,6 +75,22 @@ More projects: [github.com/sarthak425](https://github.com/sarthak425)
 ## Connect
 
 <p align="center">
+  <strong>Let's build something impactful together.</strong>
+</p>
+
+<p align="center">
+  <a href="mailto:sarthakkhatpe24@gmail.com">
+    <img src="https://img.shields.io/badge/Email%20Me-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email me" />
+  </a>
+  <a href="https://www.linkedin.com/in/sarthak-khatpe-943911327/">
+    <img src="https://img.shields.io/badge/Connect%20on%20LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="Connect on LinkedIn" />
+  </a>
+  <a href="https://sarthak425.github.io/my_Portfolio/#about">
+    <img src="https://img.shields.io/badge/Explore%20My%20Portfolio-12D9E8?style=for-the-badge&logo=threedotjs&logoColor=082032" alt="Explore my portfolio" />
+  </a>
+</p>
+
+<p align="center">
   <a href="mailto:sarthakkhatpe24@gmail.com">
     <img src="https://skillicons.dev/icons?i=gmail" height="40" alt="Gmail" />
   </a>
