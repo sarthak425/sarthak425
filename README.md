@@ -99,8 +99,8 @@ More projects: [github.com/sarthak425](https://github.com/sarthak425)
 ## GitHub Stats
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=sarthak425&show_icons=true&theme=tokyonight" alt="GitHub stats" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs?username=sarthak425&layout=compact&theme=tokyonight" alt="Top languages" />
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=sarthak425&theme=github_dark" alt="GitHub stats" />
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=sarthak425&theme=github_dark" alt="Top languages" />
 </p>
 
 ---
