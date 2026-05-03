@@ -29,10 +29,12 @@
 <p align="center">
   <a href="mailto:sarthakkhatpe24@gmail.com">
     <img src="https://skillicons.dev/icons?i=gmail" height="40"/>
-  </a>
+  </a> 
+  
   <a href="https://www.linkedin.com/in/sarthak-khatpe-943911327/">
   <img src="https://skillicons.dev/icons?i=linkedin" height="40"/>
 </a>
+
   <a href="https://sarthak425.github.io/my_Portfolio/#about">
     <img src="https://skillicons.dev/icons?i=webflow" height="40"/>
   </a>
