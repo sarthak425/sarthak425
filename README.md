@@ -1,4 +1,4 @@
-<h1 align="center">Hey there, I'm Sarthak Khatpe</h1>
+<h1 align="center">Sarthak Khatpe</h1>
 
 <p align="center">
   <img
@@ -12,25 +12,42 @@
 </p>
 
 <p align="center">
+  <img src="./assets/profile-3d-hero.svg" alt="Animated 3D profile hero" />
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Open%20to%20Work-0ea5e9?style=for-the-badge&logo=linkedin&logoColor=white" alt="Open to work" />
+  <img src="https://img.shields.io/badge/Spring%20Boot-13c4a3?style=for-the-badge&logo=springboot&logoColor=white" alt="Spring Boot" />
+  <img src="https://img.shields.io/badge/React-09131f?style=for-the-badge&logo=react&logoColor=61dafb" alt="React" />
+  <img src="https://img.shields.io/badge/3D%20Portfolio-0b1220?style=for-the-badge&logo=threedotjs&logoColor=22d3ee" alt="3D Portfolio" />
+</p>
+
+<p align="center">
   <img src="https://komarev.com/ghpvc/?username=sarthak425&label=Profile%20views&color=0e75b6&style=flat" alt="Profile views" />
 </p>
 
 ---
 
-## About Me
+## Profile Snapshot
 
 - Java Full Stack Developer focused on Spring Boot and React
-- Currently learning Cloud Native Development
-- Open to real-world collaboration and impactful projects
-- Interested in AI apps, scalable systems, and modern web experiences
+- Building modern web apps, AI features, and scalable backend systems
+- Currently learning Cloud Native Development and production-grade architecture
+- Open to internships, freelance work, and real-world product collaboration
 
 ---
 
-## 3D Portfolio
+## 3D Portfolio Experience
 
 <p align="center">
   <a href="https://sarthak425.github.io/my_Portfolio/#about">
-    <img src="https://img.shields.io/badge/View%203D%20Portfolio-12D9E8?style=for-the-badge&logo=three.js&logoColor=white" alt="View 3D Portfolio" />
+    <img src="./assets/portfolio-card.svg" alt="3D portfolio card" />
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://sarthak425.github.io/my_Portfolio/#about">
+    <img src="https://img.shields.io/badge/View%20Live%203D%20Portfolio-12D9E8?style=for-the-badge&logo=threedotjs&logoColor=white" alt="View 3D Portfolio" />
   </a>
 </p>
 
@@ -55,7 +72,7 @@ More projects: [github.com/sarthak425](https://github.com/sarthak425)
 
 ---
 
-## Contact
+## Connect
 
 <p align="center">
   <a href="mailto:sarthakkhatpe24@gmail.com">
@@ -68,6 +85,14 @@ More projects: [github.com/sarthak425](https://github.com/sarthak425)
     <img src="https://skillicons.dev/icons?i=webflow" height="40" alt="Portfolio" />
   </a>
 </p>
+
+---
+
+## Current Focus
+
+- Creating polished full-stack applications with clean UI and strong backend design
+- Improving cloud, deployment, and containerization skills
+- Expanding my portfolio with interactive 3D experiences and recruiter-friendly presentation
 
 ---
 

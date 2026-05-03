@@ -1,0 +1,30 @@
+<svg width="900" height="260" viewBox="0 0 900 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="cardBg" x1="30" y1="10" x2="870" y2="250" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#081221"/>
+      <stop offset="0.55" stop-color="#0C1E36"/>
+      <stop offset="1" stop-color="#091320"/>
+    </linearGradient>
+    <linearGradient id="cardStroke" x1="80" y1="0" x2="820" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1CE0FF"/>
+      <stop offset="1" stop-color="#7C5CFF"/>
+    </linearGradient>
+    <linearGradient id="buttonBg" x1="0" y1="0" x2="220" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#14D5F8"/>
+      <stop offset="1" stop-color="#0EA5E9"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="8" y="8" width="884" height="244" rx="28" fill="url(#cardBg)" stroke="url(#cardStroke)" stroke-opacity="0.34"/>
+  <circle cx="170" cy="130" r="66" fill="#0E253E"/>
+  <path d="M170 58L225 91V157L170 190L115 157V91L170 58Z" fill="#1CE0FF" fill-opacity="0.18" stroke="#72F0FF" stroke-width="2"/>
+  <path d="M170 82L204 102V142L170 162L136 142V102L170 82Z" fill="#2BE2FF" fill-opacity="0.58"/>
+  <text x="286" y="94" fill="#FFFFFF" font-family="Segoe UI, Arial, sans-serif" font-size="34" font-weight="700">Interactive 3D Portfolio</text>
+  <text x="286" y="132" fill="#B6D4EF" font-family="Segoe UI, Arial, sans-serif" font-size="19">React Three Fiber experience with animated 3D objects and polished visual design.</text>
+  <text x="286" y="164" fill="#89B7DD" font-family="Segoe UI, Arial, sans-serif" font-size="16">Open the live site to explore the portfolio in motion.</text>
+
+  <g transform="translate(286 188)">
+    <rect width="230" height="42" rx="21" fill="url(#buttonBg)"/>
+    <text x="34" y="27" fill="#082032" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="700">VIEW LIVE PORTFOLIO</text>
+  </g>
+</svg>
