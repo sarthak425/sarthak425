@@ -1,5 +1,41 @@
 <h1 align="center">Hey 👋, I'm Sarthak Khatpe</h1>
+import React from "react";
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls, Float } from "@react-three/drei";
 
+function Cube() {
+  return (
+    <Float speed={2} rotationIntensity={1.5} floatIntensity={2}>
+      <mesh>
+        <boxGeometry args={[2, 2, 2]} />
+        <meshStandardMaterial color="#00ffff" />
+      </mesh>
+    </Float>
+  );
+}
+
+export default function App() {
+  return (
+    <div style={{ height: "100vh", background: "#0f172a" }}>
+      <Canvas>
+        <ambientLight intensity={0.5} />
+        <directionalLight position={[2, 2, 2]} />
+        <Cube />
+        <OrbitControls />
+      </Canvas>
+
+      <h1 style={{
+        position: "absolute",
+        top: "20%",
+        width: "100%",
+        textAlign: "center",
+        color: "white"
+      }}>
+        Sarthak Khatpe 🚀
+      </h1>
+    </div>
+  );
+}
 <p align="center">
   <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=30&pause=1000&color=00F7FF&center=true&vCenter=true&width=700&lines=Java+Full+Stack+Developer;Spring+Boot+Specialist;React+Developer;Cloud+Enthusiast;Building+Scalable+Applications" />
 </p>
