@@ -1,8 +1,14 @@
-<h1 align="center">Hey 👋, I'm Sarthak Khatpe</h1>
-
+<!-- 3D Wave Header -->
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=30&pause=1000&color=00F7FF&center=true&vCenter=true&width=700&lines=Java+Full+Stack+Developer;Spring+Boot+Specialist;React+Developer;Cloud+Enthusiast;Building+Scalable+Applications" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:00F7FF,100:0f172a&height=220&section=header&text=Sarthak%20Khatpe&fontSize=42&fontColor=ffffff&animation=fadeIn" />
 </p>
+
+<!-- Typing Animation -->
+<p align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=Orbitron&size=28&pause=1000&color=00F7FF&center=true&vCenter=true&width=700&lines=🚀+Java+Full+Stack+Developer;⚡+Spring+Boot+%7C+React;🌐+Cloud+Enthusiast;💻+Building+Scalable+Apps" />
+</p>
+
+<h2 align="center">Hey 👋, I'm Sarthak Khatpe</h2>
 
 <p align="center">
   <img src="https://komarev.com/ghpvc/?username=sarthak425&label=Profile%20views&color=0e75b6&style=flat"/>
@@ -12,9 +18,18 @@
 
 ## 🚀 About Me
 - 💻 Java Full Stack Developer (Spring Boot + React)
-- 🌱 Currently learning **Cloud Native Development**
-- 🤝 Open to collaborate on **real-world projects**
-- ⚡ I build **AI + Web Apps + Scalable Systems**
+- 🌱 Learning Cloud Native Development
+- 🤝 Open to real-world collaboration
+- ⚡ Building AI + Web Apps + Scalable Systems
+
+---
+
+## 🌍 3D Portfolio
+<p align="center">
+  <a href="https://sarthak425.github.io/my_Portfolio/#about">
+    <img src="https://img.shields.io/badge/🚀%20View%203D%20Portfolio-00F7FF?style=for-the-badge"/>
+  </a>
+</p>
 
 ---
 
@@ -25,29 +40,25 @@
 
 ---
 
+## 🚀 Featured Projects
+- 🔹 AI Resume Builder – Spring Boot + React + AI  
+- 🔹 Real-time Chat App – WebSocket + STOMP  
+- 🔹 URL Shortener – JWT + Spring Security  
+- 🔹 Plant Care System – Hibernate + MySQL  
+
+👉 https://github.com/sarthak425
+
+---
+
 ## 📫 Contact Me
 <p align="center">
   <a href="mailto:sarthakkhatpe24@gmail.com">
-    <img src="https://skillicons.dev/icons?i=gmail" height="40"/>
-  </a> 
-  
-  <a href="https://www.linkedin.com/in/sarthak-khatpe-943911327/">
-  <img src="https://skillicons.dev/icons?i=linkedin" height="40"/>
-</a>
-
+    <img src="https://img.shields.io/badge/Gmail-FF0000?style=for-the-badge&logo=gmail&logoColor=white"/>
+  </a>
   <a href="https://sarthak425.github.io/my_Portfolio/#about">
-    <img src="https://skillicons.dev/icons?i=webflow" height="40"/>
+    <img src="https://img.shields.io/badge/Portfolio-000000?style=for-the-badge&logo=vercel"/>
   </a>
 </p>
----
-
-## 🚀 Featured Projects
-- 🔹 AI Resume Builder (Spring Boot + React + AI)
-- 🔹 Real-time Chat App (WebSocket + STOMP)
-- 🔹 URL Shortener (JWT + Spring Security)
-- 🔹 Plant Care System (Hibernate + MySQL)
-
-👉 More Projects: https://github.com/sarthak425
 
 ---
 
@@ -59,7 +70,7 @@
 
 ---
 
-## 🔥 Streak Stats
+## 🔥 Streak
 <p align="center">
   <img src="https://streak-stats.demolab.com?user=sarthak425&theme=tokyonight"/>
 </p>
@@ -73,5 +84,7 @@
 
 ---
 
-## 💡 Quote
-> "First, solve the problem. Then, write the code."
+<!-- Footer Wave -->
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:00F7FF,100:0f172a&height=120&section=footer"/>
+</p>
