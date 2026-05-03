@@ -18,23 +18,22 @@
 
 ---
 
-## 🌐 Connect With Me
-<p align="center">
-<a href="https://www.linkedin.com/in/sarthak-khatpe-943911327/">
-  <img src="https://skillicons.dev/icons?i=linkedin" height="40"/>
-</a>
-<a href="mailto:sarthakkhatpe45@gmail.com">
-  <img src="https://skillicons.dev/icons?i=gmail" height="40"/>
-</a>
-</p>
-
----
-
 ## 🛠️ Tech Stack
 <p align="center">
   <img src="https://skillicons.dev/icons?i=java,spring,react,nodejs,mysql,mongodb,docker,aws,js,html,css,git&theme=dark" />
 </p>
 
+---
+
+## 📫 Contact Me
+<p align="center">
+  <a href="mailto:sarthakkhatpe24@gmail.com">
+    <img src="https://skillicons.dev/icons?i=gmail" height="40"/>
+  </a>
+  <a href="https://sarthak425.github.io/my_Portfolio/#about">
+    <img src="https://skillicons.dev/icons?i=webflow" height="40"/>
+  </a>
+</p>
 ---
 
 ## 🚀 Featured Projects
