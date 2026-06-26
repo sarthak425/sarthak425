@@ -1,0 +1,193 @@
+\section{Software Requirements Specification}
+\subsection{Functional Requirement}
+\subsubsection{System Features}
+\begin{itemize}
+\item Generate a structured resume from a free-form candidate description and optional job description.
+\item Allow manual editing of personal details, skills, experience, education, projects, and certifications.
+\item Provide multiple resume templates and support PDF export.
+\item Analyze an uploaded TXT, PDF, or DOCX resume and return ATS-style feedback.
+\item Generate interview questions from resume content, target role, and job context.
+\item Support sign up, sign in, profile access, and saved resume history.
+\item Offer live job search and company profile assistance through backend-integrated external feeds.
+\item Generate professional email drafts to support application outreach.
+\end{itemize}
+
+\subsubsection{Detailed Functional Modules}
+\begin{table}[H]
+\centering
+\caption{Detailed functional modules of the system}
+\begin{tabular}{|p{3.5cm}|p{8.6cm}|}
+\hline
+\textbf{Module} & \textbf{Expected Behavior} \\
+\hline
+User authentication & Register new users, validate login credentials, create session tokens, and restrict access to profile-only features. \\
+\hline
+Resume generation & Accept a candidate summary and optional job description, send prompt to AI layer, and return structured JSON for resume sections. \\
+\hline
+Resume editor & Let the user update generated content manually for projects, education, skills, links, and experience bullets. \\
+\hline
+Template and export & Render the same resume data in multiple templates and export the chosen version to PDF. \\
+\hline
+ATS-style rating & Read uploaded resume content and evaluate section completeness, impact language, and keyword presence. \\
+\hline
+Profile persistence & Save selected resume versions with file name, template selection, and styling configuration. \\
+\hline
+Interview preparation & Generate role-aware interview questions and preparation guidance using the same resume context. \\
+\hline
+Jobs support & Fetch live jobs and related company details to help users continue from resume creation into job search. \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsubsection{Primary Use Cases}
+\begin{itemize}
+\item A user enters a free-form description and receives a first draft of the resume.
+\item A user pastes a target job description and requests better role alignment.
+\item A user uploads an existing resume to check its quality and missing keywords.
+\item A signed-in user saves a generated resume version and reopens it later.
+\item A user explores live job opportunities and prepares likely interview questions.
+\end{itemize}
+
+\subsection{External Interface Requirement}
+\subsubsection{User Interface}
+\begin{itemize}
+\item Responsive web interface with dedicated pages for landing, resume generation, resume rating, interview preparation, job search, login, and profile management.
+\item Form-based editing, AI prompt input, template selection, and download actions.
+\item Clear validation and error feedback for upload failures, missing fields, and unavailable AI services.
+\end{itemize}
+
+\subsubsection{Software Interface}
+\begin{itemize}
+\item Frontend: React 19, Vite 6, Tailwind CSS, axios, react-router-dom, jsPDF, pdf.js \cite{react_docs,vite_docs,jspdf_docs,pdfjs_docs}.
+\item Backend: Spring Boot 3.4.2, Spring Data JPA, Spring Security, Spring AI, Apache POI, Apache PDFBox \cite{spring_boot_docs,spring_data_docs,spring_security_docs,spring_ai_docs,poi_docs,pdfbox_docs}.
+\item AI Layer: Ollama-hosted model served through Spring AI \cite{ollama_docs,spring_ai_docs}.
+\item Database Layer: relational persistence for users and saved resumes, with deployable MySQL support and H2-based local development configuration.
+\end{itemize}
+
+\subsubsection{Communication Interfaces}
+\begin{itemize}
+\item REST APIs over HTTP between the React client and Spring Boot backend.
+\item Header-based session token handling for authenticated profile endpoints.
+\item External HTTP integration for live job feeds and optional external interview model access.
+\end{itemize}
+
+\subsection{Input and Output Specification}
+\subsubsection{Input Specification}
+\begin{itemize}
+\item Candidate summary text describing education, skills, projects, and experience.
+\item Optional job description used for tailoring and keyword alignment.
+\item Resume files in TXT, PDF, or DOCX format for rating workflow.
+\item Login and sign-up data such as name, email, and password.
+\item User selections such as template choice, color accent, and target role.
+\end{itemize}
+
+\subsubsection{Output Specification}
+\begin{itemize}
+\item Structured resume JSON ready for editing and rendering.
+\item Resume preview rendered in multiple template formats.
+\item PDF export of the chosen resume layout.
+\item ATS-style scoring output with strengths, improvements, and keyword guidance.
+\item Saved profile records containing previously generated resume versions.
+\item Interview question sets and live job result lists.
+\end{itemize}
+
+\subsection{Nonfunctional Requirements}
+\subsubsection{Performance Requirements}
+\noindent The system should return normal UI actions immediately and AI-assisted responses within an acceptable interactive wait time. Cached job search responses and structured prompt handling are used to keep the experience consistent.
+
+\subsubsection{Safety Requirements}
+\noindent The application should validate file uploads, reject unsupported formats, and handle unavailable upstream services without crashing the user workflow.
+
+\subsubsection{Security Requirements}
+\noindent User accounts require authenticated access for profile storage. Passwords are stored as hashes, session tokens are validated on protected routes, and CORS is explicitly configured for approved frontend origins \cite{spring_security_docs}.
+
+\subsubsection{Software Quality Attributes}
+\noindent The solution emphasizes usability, modularity, maintainability, and extensibility. Separate controllers, services, repositories, and frontend page modules make it easier to add future features without rewriting the entire system.
+
+\subsubsection{Reliability and Availability}
+\noindent The application should remain usable even when an external dependency is unavailable. For example, manual resume editing should still work when the AI service is down, and informative error messages should be shown instead of blank screens. This requirement is important because the project depends on both model availability and external job feeds.
+
+\subsubsection{Scalability Considerations}
+\noindent The current academic project is targeted at moderate single-user or small-group usage. However, the layered architecture supports future scaling by separating frontend rendering, business services, AI orchestration, and data persistence. Caching, externalized configuration, and independent service modules make future optimization possible.
+
+\subsection{System Requirement}
+\subsubsection{Database Requirement}
+\begin{itemize}
+\item Relational database support for user accounts and saved resumes.
+\item MySQL for deployment-oriented persistence and H2 for local/test configuration.
+\end{itemize}
+
+\subsubsection{Software Requirement}
+\begin{itemize}
+\item Windows 11 or equivalent development environment.
+\item Java 21 and Maven for backend execution.
+\item Node.js and npm for frontend execution.
+\item Web browser such as Chrome or Edge.
+\item Ollama runtime for local LLM execution.
+\end{itemize}
+
+\subsubsection{Hardware Requirement}
+\begin{itemize}
+\item Laptop or desktop computer.
+\item Minimum 4 GB RAM, with higher memory preferred for local AI model usage.
+\item Stable internet connectivity for live job feeds and package installation.
+\end{itemize}
+
+\subsection{Assumptions and Constraints}
+\subsubsection{Assumptions}
+\begin{itemize}
+\item The user provides meaningful profile information for high-quality AI output.
+\item Ollama or the configured model endpoint is available during AI-assisted operations.
+\item The browser supports modern JavaScript required by the React-based frontend.
+\item Uploaded resumes contain extractable text rather than only scanned image content.
+\end{itemize}
+
+\subsubsection{Constraints}
+\begin{itemize}
+\item AI output quality depends on prompt quality and the chosen underlying model.
+\item External jobs data depends on the availability and policy of upstream providers.
+\item Local machine performance can affect the response time of AI generation and PDF processing.
+\item The current version focuses on English-language resume content and recruiter-style formatting.
+\end{itemize}
+
+\subsection{Analysis Model}
+\subsubsection{SDLC Model to be Applied}
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  stage/.style={draw, fill=blue!15, minimum width=4cm, minimum height=0.9cm, align=center},
+  arrow/.style={-Latex, thick}
+]
+\node[stage] (a) {Requirement Analysis};
+\node[stage, below=0.7cm of a, xshift=1.0cm] (b) {System Design};
+\node[stage, below=0.7cm of b, xshift=1.0cm] (c) {Implementation};
+\node[stage, below=0.7cm of c, xshift=1.0cm] (d) {Testing};
+\node[stage, below=0.7cm of d, xshift=1.0cm] (e) {Deployment and Output};
+\draw[arrow] (a) -- (b);
+\draw[arrow] (b) -- (c);
+\draw[arrow] (c) -- (d);
+\draw[arrow] (d) -- (e);
+\end{tikzpicture}
+\caption{Applied SDLC model for the AI Resume Builder project}
+\end{figure}
+
+\subsubsection{Requirement Traceability Overview}
+\begin{table}[H]
+\centering
+\caption{Traceability from need to implemented module}
+\begin{tabular}{|p{4.2cm}|p{4.6cm}|p{3.4cm}|}
+\hline
+\textbf{User Need} & \textbf{Implemented Module} & \textbf{Verification} \\
+\hline
+Need resume quickly from rough notes & Resume generation endpoint and form UI & Functional testing \\
+\hline
+Need better alignment with job role & Job-match and tailoring workflow & API and UI testing \\
+\hline
+Need to improve existing resume & Upload and ATS rating module & File handling tests \\
+\hline
+Need multiple saved versions & Profile and saved resume persistence & Authentication and save tests \\
+\hline
+Need application support beyond resume & Email, jobs, and interview modules & End-to-end flow review \\
+\hline
+\end{tabular}
+\end{table}

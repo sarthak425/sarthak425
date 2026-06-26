@@ -1,0 +1,57 @@
+\section{Project Implementation}
+\subsection{Implementation Overview}
+\noindent The implementation is divided into frontend, backend, AI, and persistence modules. The frontend contains dedicated pages such as Home, Services, Generate Resume, Rate Resume, Interview Questions, Live Jobs Board, Login, and Profile. The backend exposes grouped REST endpoints for authentication, resume generation, upload analysis, email generation, interview question generation, profile operations, and live jobs search. This separation keeps presentation logic, domain logic, and persistence responsibilities independent.
+
+\begin{table}[H]
+\centering
+\caption{Implementation modules}
+\begin{tabular}{|p{3.3cm}|p{4.0cm}|p{4.8cm}|}
+\hline
+\textbf{Layer} & \textbf{Representative Modules} & \textbf{Responsibility} \\
+\hline
+Frontend & GenerateResume, RateResume, Profile, LiveJobsBoard & Data entry, preview, export, navigation, and interactive UI \\
+\hline
+Backend Controllers & AuthController, ResumeController, ProfileController & API entry points and request validation \\
+\hline
+Backend Services & ResumeService, UserAccountService, JobSearchService & AI orchestration, persistence logic, and upstream integrations \\
+\hline
+Persistence & AppUser, SavedResume, JPA repositories & Store users, session tokens, and saved resume payloads \\
+\hline
+AI and Parsing & Spring AI, Ollama, PDFBox, Apache POI, pdf.js & Generation, rating, PDF parsing, DOCX parsing, and structured extraction \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Resume Generation Workflow}
+\noindent The central workflow begins with a free-form description of the candidate and an optional target job description. The backend uses Spring AI to send a structured prompt to Ollama, receives the response, and transforms it into JSON that matches resume sections such as personal information, summary, skills, experience, education, projects, and achievements. The frontend then renders the result in editable form and template previews \cite{spring_ai_docs,ollama_docs}.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  node distance=0.6cm,
+  step/.style={draw, rounded corners, minimum width=4.3cm, minimum height=0.85cm, align=center, fill=teal!12},
+  arrow/.style={-Latex, thick}
+]
+\node[step] (a) {Candidate enters profile description};
+\node[step, below=of a] (b) {Optional job description is added};
+\node[step, below=of b] (c) {Backend prompt template is prepared};
+\node[step, below=of c] (d) {Ollama returns structured resume JSON};
+\node[step, below=of d] (e) {Frontend allows edits and template preview};
+\node[step, below=of e] (f) {Final resume is exported or saved};
+\draw[arrow] (a) -- (b);
+\draw[arrow] (b) -- (c);
+\draw[arrow] (c) -- (d);
+\draw[arrow] (d) -- (e);
+\draw[arrow] (e) -- (f);
+\end{tikzpicture}
+\caption{Implementation flow for AI-assisted resume generation}
+\end{figure}
+
+\subsection{Resume Rating and File Processing}
+\noindent The application also supports uploaded resumes in TXT, PDF, and DOCX form. Text extraction for PDF resumes is handled in the frontend through pdf.js, while backend-side parsing is supported through PDFBox and Apache POI for richer ATS-style feedback workflows. The resulting extracted text is assessed for contact details, keywords, measurable impact, and general completeness \cite{pdfjs_docs,pdfbox_docs,poi_docs}.
+
+\subsection{Template, Export, and Profile Storage}
+\noindent After generation, the user can select from multiple templates and export the result to PDF using client-side rendering and jsPDF support \cite{jspdf_docs}. Authenticated users can also save the current resume JSON, file name, template choice, and accent configuration to their profile. The backend persists this data through JPA-backed user and saved-resume entities, which makes it possible to maintain multiple role-specific resume versions for future applications \cite{spring_data_docs}.
+
+\subsection{Additional Smart Features}
+\noindent Beyond core generation, the application includes job-description matching, professional email generation, interview question generation, and live jobs browsing. These features extend the project from a document generator into a broader career-preparation assistant. The design intentionally keeps these features modular so that future additions, such as cover letter templates or recruiter analytics, can be introduced without changing the main resume workflow.

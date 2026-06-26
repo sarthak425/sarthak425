@@ -1,0 +1,12 @@
+\section{Introduction}
+\subsection{Overview}
+\noindent AI Resume Builder is a web-based application designed to help users move from rough self-description to a complete, editable, and exportable resume. The frontend provides guided forms, prompt-based generation, template previews, and result screens, while the backend manages AI requests, file processing, user accounts, and persistence. The project is organized as a modern client-server system with React on the presentation layer and Spring Boot on the application layer \cite{react_docs,spring_boot_docs}.
+
+\subsection{Motivation}
+\noindent The job application process demands high-quality resumes that are concise, role-specific, and easy for both recruiters and automated screening systems to understand. Students and early-career candidates often do not know how to structure achievements, quantify impact, or identify missing keywords in a job description. This project was motivated by the need to make resume preparation faster, more accessible, and more adaptive by combining AI assistance with practical tools such as template switching, PDF export, uploaded resume scoring, and interview question generation.
+
+\subsection{Project Scope \& Limitations}
+\noindent The system covers resume generation, job-description matching, resume rating, interview question generation, email drafting, live job feed access, and user profile storage. The application supports multiple resume templates and can save role-specific versions for authenticated users. Its AI-assisted features depend on model availability and the quality of user-provided input. Live job listings also depend on external data providers. The project improves productivity and quality, but it does not replace domain-specific human review for final hiring decisions.
+
+\subsection{Methodologies of Problem-Solving}
+\noindent The solution follows a layered problem-solving methodology. First, user needs are translated into structured modules such as generation, scoring, storage, and search. Second, each module is implemented through a dedicated frontend workflow and backend endpoint. Third, AI prompts are constrained so that the model returns structured data that can be rendered consistently in templates. Fourth, file-based resume analysis is added to evaluate existing resumes instead of only generated ones. Finally, testing is used to validate navigation, API responses, error handling, and content persistence across the complete workflow.

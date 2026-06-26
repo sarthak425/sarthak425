@@ -1,0 +1,68 @@
+\section{Literature Survey}
+\subsection{Similar Work}
+\noindent Conventional resume builders generally focus on data entry and visual formatting, while AI writing tools focus on text generation without providing stable document structure, saved profile history, or ATS-style review. Job platforms offer listings, but they do not usually help users transform their experience into a tailored resume. Interview preparation tools are also commonly separated from resume authoring. The present project studies these disconnected workflows and combines them into one application so that the candidate can move from profile description to application-ready material without switching systems.
+
+\noindent In recent software systems, three broad trends are visible. The first trend is document automation, where a system helps users create documents quickly through templates and reusable layouts. The second trend is AI-assisted writing, where a language model converts rough notes into professional text. The third trend is job-preparation intelligence, where resume scoring, keyword matching, and interview guidance are treated as separate supporting tools. The proposed AI Resume Builder is motivated by the observation that candidates usually need all three capabilities together, not as isolated products. Because of that, the project deliberately joins authoring, evaluation, and job-readiness into one consistent workflow.
+
+\subsection{Review of Existing Approaches}
+\noindent Traditional resume generators are useful when the user already knows how to describe projects, quantify achievements, and organize sections properly. Their strength lies in predictable layouts and export quality, but they do little to improve the actual content quality of the resume. In contrast, AI content tools can rephrase responsibilities and produce summaries, yet their raw output may be inconsistent, verbose, or not aligned with a recruiter-friendly structure.
+
+\noindent ATS-style scanners introduced another layer of support by checking whether a resume contains measurable outcomes, action verbs, and role-relevant keywords. However, these scanners commonly operate only after a resume has already been written. Users are then forced to switch back to a separate builder or word processor to make the suggested changes. This back-and-forth workflow becomes inefficient when multiple job-specific versions are required.
+
+\noindent Live job boards and interview preparation assistants have also become common in career-support platforms. Even so, job discovery, resume customization, and interview preparation remain disconnected steps. The candidate may discover a role on one platform, rewrite the resume on another, and prepare questions on a third. The literature survey therefore supports the need for a unified application where each step can reuse the same underlying profile data.
+
+\subsection{Tabulated Short Survey}
+\begin{table}[H]
+\centering
+\caption{Short survey of existing solution categories}
+\begin{tabular}{|p{3.1cm}|p{4.2cm}|p{5.0cm}|}
+\hline
+\textbf{Category} & \textbf{Strengths} & \textbf{Observed Limitations} \\
+\hline
+Template-only resume builders & Fast layout generation and printable output & Limited personalization, no AI drafting, and weak job-specific adaptation \\
+\hline
+Generic AI writing tools & Good text expansion and rewriting support & Output is often unstructured and not directly ready for resume templates \\
+\hline
+Standalone ATS scanners & Helpful for keyword and section feedback & Usually require a separate resume creation workflow and manual correction \\
+\hline
+Job portals & Provide role discovery and application links & Do not convert candidate data into a strong resume or interview preparation plan \\
+\hline
+Interview prep tools & Useful for question practice and readiness & Commonly disconnected from actual resume content and target job context \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Comparative view of major support capabilities}
+\begin{tabular}{|p{3.4cm}|p{2.0cm}|p{2.0cm}|p{2.0cm}|p{2.0cm}|}
+\hline
+\textbf{System Type} & \textbf{AI Drafting} & \textbf{Template Output} & \textbf{ATS Review} & \textbf{Profile History} \\
+\hline
+Basic resume builders & Low & High & Low & Low \\
+\hline
+Generic AI tools & High & Low & Low & Low \\
+\hline
+ATS scanners & Low & Low & High & Low \\
+\hline
+Job portals & Low & Low & Medium & Low \\
+\hline
+AI Resume Builder & High & High & High & High \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Advantages and Disadvantages of Previous System}
+\noindent Previous systems are strong in isolated tasks, such as layout design, keyword scanning, or job listing aggregation. However, they typically make the user move between multiple tools to finish one application cycle. This increases friction, duplicates effort, and makes it harder to maintain consistency across resume content, job targeting, and interview preparation. The main disadvantage of the older fragmented approach is the lack of one reliable source of truth for the candidate profile.
+
+\noindent Another limitation of earlier systems is the absence of structured iteration. Users often receive feedback such as ``add stronger action verbs'' or ``improve keyword coverage,'' but the tool that produced the feedback is not the same tool that helps them rewrite the content. As a result, improvements are manual and error-prone. Moreover, many previous systems treat the final resume as a static file instead of a reusable data model. That makes it difficult to generate several variants of the same profile for different job roles.
+
+\subsection{Research Gap}
+\noindent The main gap identified from the survey is the lack of integration between content generation, structured editing, resume evaluation, and candidate support services. Many existing platforms specialize in only one part of the problem. Very few systems let a user begin with a free-form profile description, transform it into structured resume sections, evaluate it against a role, save alternate versions, and continue into interview preparation without re-entering the same data repeatedly.
+
+\noindent A second gap concerns local and controllable AI usage. Some tools rely completely on remote hosted models, which may introduce cost, latency, or privacy concerns. By using Spring AI with Ollama, the proposed project explores a more developer-controlled deployment pattern while still preserving practical usefulness for students and job seekers.
+
+\subsection{Outcome of Literature Survey}
+\noindent The literature survey indicates that an effective resume platform should unify structured authoring, AI enhancement, evaluation, and storage. Therefore, the proposed system integrates resume generation, upload-based review, job-description matching, interview question generation, and saved resume profiles in one architecture. The technical stack selected for this integration is also well supported by mature frontend, backend, AI, and document-processing ecosystems \cite{spring_ai_docs,pdfbox_docs,poi_docs}.
+
+\noindent The survey also justifies the architectural direction of this project. React is appropriate for fast interactive UI iteration, Spring Boot provides stable API and service orchestration, Spring AI simplifies model integration, and PDF/DOCX processing libraries make file-based review practical. Hence, both the product concept and the technical stack are supported by the needs observed in current resume-building workflows.

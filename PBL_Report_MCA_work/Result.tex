@@ -1,0 +1,142 @@
+\section{Result}
+
+\begin{itemize}
+\item The system generates editable resumes from unstructured candidate descriptions.
+\item Users can compare resume content with job descriptions and identify missing strengths.
+\item Uploaded resumes can be reviewed for ATS-style quality signals and improvement guidance.
+\item Authenticated users can preserve multiple resume versions for different roles.
+\item The platform extends beyond resume generation by supporting email drafting, interview preparation, and live job browsing.
+\end{itemize}
+
+\subsection{Representative Interface Outputs}
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  shell/.style={draw, rounded corners, minimum width=14cm, minimum height=3.8cm, fill=cyan!4},
+  card/.style={draw, rounded corners, minimum width=2.8cm, minimum height=1.8cm, fill=white, align=center}
+]
+\node[shell] (s) {};
+\node[above=0.1cm of s] {\textbf{Service Modules Available in the Application}};
+\node[card, xshift=-4.6cm] at (s.center) {Resume\\Generation};
+\node[card, xshift=-1.5cm] at (s.center) {Template\\Preview};
+\node[card, xshift=1.5cm] at (s.center) {ATS\\Rating};
+\node[card, xshift=4.6cm] at (s.center) {Interview\\Preparation};
+\end{tikzpicture}
+\caption{Overview of the main project modules visible to the user}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  screen/.style={draw, rounded corners, minimum width=13.5cm, minimum height=4.0cm, fill=blue!4},
+  bar/.style={draw, rounded corners, minimum width=10.5cm, minimum height=0.7cm, fill=white},
+  btn/.style={draw, rounded corners, minimum width=2.2cm, minimum height=0.7cm, fill=black!8}
+]
+\node[screen] (s) {};
+\node[above=0.1cm of s] {\textbf{Landing and Resume Entry Experience}};
+\node[bar, yshift=0.8cm] at (s.center) {Candidate description + optional job description};
+\node[btn, xshift=-3.2cm, yshift=-0.8cm] at (s.center) {Generate};
+\node[btn, yshift=-0.8cm] at (s.center) {Templates};
+\node[btn, xshift=3.2cm, yshift=-0.8cm] at (s.center) {Download PDF};
+\end{tikzpicture}
+\caption{Conceptual view of the resume generation workspace}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  screen/.style={draw, rounded corners, minimum width=13.5cm, minimum height=4.2cm, fill=purple!4},
+  leftbox/.style={draw, rounded corners, minimum width=5.4cm, minimum height=2.9cm, fill=white, align=center},
+  rightbox/.style={draw, rounded corners, minimum width=5.4cm, minimum height=2.9cm, fill=white, align=center}
+]
+\node[screen] (s) {};
+\node[above=0.1cm of s] {\textbf{Template Preview and Designer View}};
+\node[leftbox, xshift=-3.4cm] at (s.center) {Template chooser\\Classic, Modern, Minimal\\and other presets};
+\node[rightbox, xshift=3.4cm] at (s.center) {Live resume preview\\Accent colors\\Download-ready layout};
+\end{tikzpicture}
+\caption{Conceptual template selection and designer preview screen}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  screen/.style={draw, rounded corners, minimum width=13.5cm, minimum height=4.2cm, fill=green!4},
+  leftbox/.style={draw, rounded corners, minimum width=5.0cm, minimum height=2.8cm, fill=white},
+  rightbox/.style={draw, rounded corners, minimum width=6.3cm, minimum height=2.8cm, fill=white}
+]
+\node[screen] (s) {};
+\node[above=0.1cm of s] {\textbf{Resume Rating and ATS Feedback}};
+\node[leftbox, xshift=-3.2cm] at (s.center) {Upload TXT / PDF / DOCX};
+\node[rightbox, xshift=3.1cm] at (s.center) {Score band\\Missing keywords\\Strengths\\Improvement suggestions};
+\draw[-Latex, thick] ([xshift=-0.7cm]s.center) -- ([xshift=0.7cm]s.center);
+\end{tikzpicture}
+\caption{Conceptual output of the ATS-style resume review module}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  screen/.style={draw, rounded corners, minimum width=13.5cm, minimum height=4.2cm, fill=yellow!5},
+  box/.style={draw, rounded corners, minimum width=5.2cm, minimum height=1.3cm, fill=white, align=center}
+]
+\node[screen] (s) {};
+\node[above=0.1cm of s] {\textbf{Live Jobs and Company Insights}};
+\node[box, xshift=-3.4cm, yshift=0.8cm] at (s.center) {Search by role, location, or company};
+\node[box, xshift=3.4cm, yshift=0.8cm] at (s.center) {Live job cards with source and apply links};
+\node[box, yshift=-1.0cm] at (s.center) {Company profile summary, tags, and related context};
+\end{tikzpicture}
+\caption{Conceptual live jobs board and company insight interface}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  screen/.style={draw, rounded corners, minimum width=13.5cm, minimum height=4.2cm, fill=orange!5},
+  box/.style={draw, rounded corners, minimum width=3.6cm, minimum height=1.0cm, fill=white}
+]
+\node[screen] (s) {};
+\node[above=0.1cm of s] {\textbf{Profile, Jobs, and Interview Support}};
+\node[box, xshift=-4.0cm, yshift=0.7cm] at (s.center) {Saved resume history};
+\node[box, xshift=0cm, yshift=0.7cm] at (s.center) {Live jobs board};
+\node[box, xshift=4.0cm, yshift=0.7cm] at (s.center) {Company profile insight};
+\node[box, xshift=-2.0cm, yshift=-0.9cm] at (s.center) {Interview questions};
+\node[box, xshift=2.0cm, yshift=-0.9cm] at (s.center) {Professional email draft};
+\end{tikzpicture}
+\caption{Conceptual output of supporting career-preparation modules}
+\end{figure}
+
+\subsection{Observations}
+\noindent The completed application demonstrates that AI assistance becomes more useful when it is combined with structure, persistence, and recruiter-oriented workflows. Instead of acting as a one-time text generator, the system supports an iterative process where the candidate can generate, review, tailor, save, and reuse resume content. This makes the project more practical for real job preparation than a standalone formatting or chatbot-only tool.
+
+\subsection{Feature Outcome Summary}
+\begin{table}[H]
+\centering
+\caption{Outcome summary across major features}
+\begin{tabular}{|p{3.6cm}|p{7.0cm}|}
+\hline
+\textbf{Feature} & \textbf{Practical Outcome} \\
+\hline
+Resume generation & Converts rough self-description into structured resume sections quickly \\
+\hline
+Resume tailoring & Improves relevance of content for target job descriptions \\
+\hline
+ATS-style review & Highlights strengths, missing content, and keyword opportunities \\
+\hline
+Template preview and export & Produces recruiter-ready PDF output in multiple layouts \\
+\hline
+Profile storage & Makes it easy to preserve and revisit role-specific resume variants \\
+\hline
+Interview preparation & Extends the value of the same resume data into prep questions \\
+\hline
+Live jobs support & Helps users continue directly from resume building into role discovery \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Discussion of Results}
+\noindent The results suggest that the most valuable aspect of the project is not any single feature in isolation, but the continuity between features. A candidate can start with incomplete thoughts, convert them into a structured resume, refine the output, compare it against a role, export it, save the version, and continue to job search and interview preparation without switching to a separate system. This continuity reduces repeated data entry and keeps the candidate profile consistent across tasks.
+
+\noindent Another important outcome is the usefulness of structured AI output. Instead of returning a plain paragraph response, the project transforms AI-generated content into fields that map directly to resume sections. This allows the frontend to support edits, template rendering, and export more reliably. In practical terms, the project behaves more like a guided productivity tool than a simple chatbot interface.
+
+\subsection{Limitations of Current Results}
+\noindent The observed results are strong for academic and placement-oriented use cases, but they also reflect the current limitations of the implementation. Resume quality still depends on the user’s input quality, local AI execution time may vary with system resources, and live job search depends on upstream providers. These limitations do not invalidate the usefulness of the system, but they define the boundary between the current academic version and a future production-grade deployment.

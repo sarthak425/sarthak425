@@ -1,0 +1,208 @@
+\section{System Design}
+\subsection{System Architecture}
+\noindent The project follows a client-server architecture. The React frontend handles routing, forms, previews, and template interaction. The Spring Boot backend provides REST endpoints for resume generation, job matching, profile storage, authentication, upload analysis, and job search. AI-assisted features are routed through Spring AI to Ollama, while persistence is handled through JPA repositories and relational tables for users and saved resumes.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  box/.style={draw, rounded corners, minimum width=3.2cm, minimum height=1.1cm, align=center, fill=blue!10},
+  ext/.style={draw, rounded corners, minimum width=3.2cm, minimum height=1.1cm, align=center, fill=green!10},
+  data/.style={draw, cylinder, shape border rotate=90, aspect=0.25, minimum height=1.2cm, minimum width=2.4cm, align=center, fill=orange!15},
+  arrow/.style={-Latex, thick}
+]
+\node[box] (user) {User};
+\node[box, right=1.4cm of user] (frontend) {React Frontend\\Pages and Templates};
+\node[box, right=1.4cm of frontend] (backend) {Spring Boot Backend\\REST Controllers};
+\node[ext, above right=0.8cm and 1.0cm of backend] (ai) {Spring AI + Ollama};
+\node[data, below right=0.9cm and 1.0cm of backend] (db) {User and Resume Store};
+\node[ext, below=1.6cm of backend] (jobs) {Live Job APIs};
+\draw[arrow] (user) -- (frontend);
+\draw[arrow] (frontend) -- node[above]{HTTP/JSON} (backend);
+\draw[arrow] (backend) -- (ai);
+\draw[arrow] (backend) -- (db);
+\draw[arrow] (backend) -- (jobs);
+\end{tikzpicture}
+\caption{High-level system architecture of AI Resume Builder}
+\end{figure}
+
+\subsection{Data Flow Diagrams}
+\noindent The most important data flow starts with candidate input. The frontend sends the free-form description and optional job description to the backend. The backend prepares prompts, sends them to Ollama, converts the model response into structured JSON, and returns that payload to the frontend for editing, template rendering, and export.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  step/.style={draw, minimum width=3.2cm, minimum height=0.9cm, align=center, fill=cyan!12},
+  arrow/.style={-Latex, thick}
+]
+\node[step] (a) {Enter candidate description};
+\node[step, below=0.6cm of a] (b) {Submit to /api/v1/resume/generate};
+\node[step, below=0.6cm of b] (c) {Prompt processing in backend};
+\node[step, below=0.6cm of c] (d) {Ollama generates structured resume data};
+\node[step, below=0.6cm of d] (e) {Frontend previews and edits result};
+\node[step, below=0.6cm of e] (f) {Template selection and PDF export};
+\draw[arrow] (a) -- (b);
+\draw[arrow] (b) -- (c);
+\draw[arrow] (c) -- (d);
+\draw[arrow] (d) -- (e);
+\draw[arrow] (e) -- (f);
+\end{tikzpicture}
+\caption{Resume generation data flow}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  ext/.style={draw, minimum width=2.8cm, minimum height=1cm, align=center, fill=green!10},
+  proc/.style={draw, rounded corners, minimum width=4.0cm, minimum height=1.1cm, align=center, fill=blue!10},
+  store/.style={draw, cylinder, shape border rotate=90, aspect=0.25, minimum width=2.3cm, minimum height=1.2cm, align=center, fill=orange!15},
+  arrow/.style={-Latex, thick}
+]
+\node[ext] (user) at (0,0) {Candidate};
+\node[proc] (system) at (6,0) {AI Resume Builder System};
+\node[store] (db) at (12,0) {Resume\\Database};
+\node[ext] (jobs) at (6,-3) {Live Job API};
+\draw[arrow] (user) -- node[above]{profile input, uploads} (system);
+\draw[arrow] (system) -- node[above]{generated resume, scores, jobs} (user);
+\draw[arrow] (system) -- node[above]{save/fetch data} (db);
+\draw[arrow] (jobs) -- node[right]{job results} (system);
+\end{tikzpicture}
+\caption{DFD Level 1 for AI Resume Builder}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  step/.style={draw, minimum width=3.4cm, minimum height=0.9cm, align=center, fill=purple!10},
+  arrow/.style={-Latex, thick}
+]
+\node[step] (a) {User signs in};
+\node[step, below=0.6cm of a] (b) {Session token sent in X-Auth-Token};
+\node[step, below=0.6cm of b] (c) {Resume JSON and template posted};
+\node[step, below=0.6cm of c] (d) {Backend stores saved resume record};
+\node[step, below=0.6cm of d] (e) {Profile page loads saved history};
+\draw[arrow] (a) -- (b);
+\draw[arrow] (b) -- (c);
+\draw[arrow] (c) -- (d);
+\draw[arrow] (d) -- (e);
+\end{tikzpicture}
+\caption{Saved profile and resume history flow}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  step/.style={draw, minimum width=3.8cm, minimum height=0.9cm, align=center, fill=yellow!15},
+  arrow/.style={-Latex, thick}
+]
+\node[step] (a) {Upload resume file};
+\node[step, below=0.6cm of a] (b) {Read TXT, PDF, or DOCX};
+\node[step, below=0.6cm of b] (c) {Extract plain text content};
+\node[step, below=0.6cm of c] (d) {Analyze ATS signals and keywords};
+\node[step, below=0.6cm of d] (e) {Return score, strengths, and suggestions};
+\draw[arrow] (a) -- (b);
+\draw[arrow] (b) -- (c);
+\draw[arrow] (c) -- (d);
+\draw[arrow] (d) -- (e);
+\end{tikzpicture}
+\caption{Resume upload and ATS analysis flow}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  proc/.style={draw, rounded corners, minimum width=3.4cm, minimum height=0.95cm, align=center, fill=cyan!10},
+  store/.style={draw, cylinder, shape border rotate=90, aspect=0.25, minimum width=2.1cm, minimum height=1.1cm, align=center, fill=orange!15},
+  ext/.style={draw, minimum width=2.5cm, minimum height=0.9cm, align=center, fill=green!10},
+  arrow/.style={-Latex, thick}
+]
+\node[ext] (user) at (0,0) {Candidate};
+\node[proc] (p1) at (4.6,2.0) {1. Resume Generation};
+\node[proc] (p2) at (4.6,0.5) {2. Resume Rating};
+\node[proc] (p3) at (4.6,-1.0) {3. Interview Questions};
+\node[proc] (p4) at (4.6,-2.5) {4. Profile and Save Resume};
+\node[store] (d1) at (9.6,1.2) {Users};
+\node[store] (d2) at (9.6,-1.6) {Saved\\Resumes};
+\node[ext] (ai) at (13.2,2.0) {Ollama / AI};
+\node[ext] (jobs) at (13.2,-1.0) {Job API};
+\draw[arrow] (user) -- (p1);
+\draw[arrow] (user) -- (p2);
+\draw[arrow] (user) -- (p3);
+\draw[arrow] (user) -- (p4);
+\draw[arrow] (p1) -- (ai);
+\draw[arrow] (ai) -- (p1);
+\draw[arrow] (p3) -- (ai);
+\draw[arrow] (ai) -- (p3);
+\draw[arrow] (p4) -- (d1);
+\draw[arrow] (p4) -- (d2);
+\draw[arrow] (jobs) -- (p3);
+\end{tikzpicture}
+\caption{DFD Level 2 for AI Resume Builder}
+\end{figure}
+
+\subsection{Entity Relationship Diagram}
+\noindent The persistence layer mainly stores user accounts and the resume versions saved by each user. Each user can save multiple generated resumes, while each saved resume belongs to exactly one user. The ER diagram below represents that relationship.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  entity/.style={draw, rounded corners, minimum width=4.6cm, minimum height=2.2cm, align=left, fill=red!8},
+  relation/.style={draw, diamond, aspect=2, minimum width=2.2cm, minimum height=1cm, align=center, fill=yellow!20},
+  line/.style={thick}
+]
+\node[entity] (u) at (0,0) {\textbf{AppUser}\\[0.1cm]
+id (PK)\\
+fullName\\
+email\\
+passwordHash\\
+createdAt\\
+sessionToken};
+\node[relation] (rel) at (6.2,0) {Saves};
+\node[entity] (r) at (12.6,0) {\textbf{SavedResume}\\[0.1cm]
+id (PK)\\
+userId (FK)\\
+fileName\\
+templateName\\
+accentJson\\
+resumeDataJson\\
+savedAt};
+\draw[line] (u) -- node[above]{1} (rel);
+\draw[line] (rel) -- node[above]{N} (r);
+\end{tikzpicture}
+\caption{ER diagram of user and saved resume entities}
+\end{figure}
+
+\subsection{UML Diagrams}
+\noindent From a use-case perspective, the primary actor is the candidate. The candidate can create an account, generate a resume, upload an existing resume for analysis, choose a template, export the final PDF, save role-specific versions, browse job listings, and prepare for interviews. The backend supports these actions through dedicated controllers such as AuthController, ResumeController, ProfileController, JobSearchController, and InterviewQuestionController.
+
+\begin{table}[H]
+\centering
+\caption{Primary use cases}
+\begin{tabular}{|p{3.3cm}|p{8.8cm}|}
+\hline
+\textbf{Actor} & \textbf{Use Cases} \\
+\hline
+Candidate & Sign up, sign in, generate resume, edit sections, upload resume, rate resume, export PDF, save resume, browse jobs, generate interview questions, create professional email \\
+\hline
+System & Validate input, call AI services, parse files, persist saved resumes, return live job data, guard protected routes \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  actor/.style={draw, minimum width=2.2cm, minimum height=0.8cm, align=center, fill=gray!10},
+  usecase/.style={draw, ellipse, minimum width=4.2cm, minimum height=0.9cm, align=center, fill=blue!6}
+]
+\node[actor] (user) at (0,0) {Candidate};
+\node[usecase] (gen) at (5,2.1) {Generate and edit resume};
+\node[usecase] (rate) at (5,0.9) {Upload and rate resume};
+\node[usecase] (save) at (5,-0.3) {Save resume to profile};
+\node[usecase] (jobs) at (5,-1.5) {Search jobs and prepare interview};
+\draw (user) -- (gen);
+\draw (user) -- (rate);
+\draw (user) -- (save);
+\draw (user) -- (jobs);
+\end{tikzpicture}
+\caption{Simplified use-case diagram for the main user}
+\end{figure}

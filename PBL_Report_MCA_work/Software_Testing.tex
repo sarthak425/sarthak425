@@ -1,0 +1,120 @@
+\section{Software Testing}
+\subsection{Type of Testing}
+\begin{itemize}
+\item \textbf{Functional testing:} verified whether each feature produces the intended output.
+\item \textbf{API testing:} verified request-response behavior for generation, upload, profile, auth, and jobs endpoints.
+\item \textbf{UI testing:} verified navigation, form validation, template switching, and protected routes.
+\item \textbf{Error-handling testing:} checked invalid uploads, unavailable AI service, and expired session behavior.
+\item \textbf{Regression testing:} ensured that adding smart features such as interview preparation and job feeds did not break resume generation.
+\end{itemize}
+
+\subsection{Testing Strategy}
+\noindent The testing strategy for this project followed a layered approach. Individual modules were validated first, especially form flows, protected routes, and API responses. After that, combined feature testing was performed to ensure that resume generation, editing, template preview, save-to-profile, and download actions behaved consistently when used together. Special attention was also given to the error states of AI requests and file uploads, because these are the areas where user frustration usually becomes highest.
+
+\noindent Static testing was used for the frontend structure and route mapping, while execution-oriented testing was used for request-response behavior and user-facing workflows. Because the product includes AI-generated content, the evaluation criteria were not limited to whether a response exists; the response also had to be structurally usable inside the resume editor and template preview screens.
+
+\subsection{Test Environment}
+\begin{table}[H]
+\centering
+\caption{Testing environment}
+\begin{tabular}{|p{4.2cm}|p{7.2cm}|}
+\hline
+\textbf{Parameter} & \textbf{Configuration Used} \\
+\hline
+Frontend framework & React 19 with Vite dev/build workflow \\
+\hline
+Backend framework & Spring Boot 3.4.2 with REST controllers \\
+\hline
+AI service & Ollama-configured local model through Spring AI \\
+\hline
+Database & H2 for development and MySQL-ready persistence model \\
+\hline
+Supported browsers & Chrome / Edge class modern browser \\
+\hline
+Upload formats tested & TXT, PDF, and DOCX \\
+\hline
+Protected features tested & Profile view and save resume workflow \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Test Cases \& Test Results}
+\begin{table}[H]
+\centering
+\caption{Representative test cases and outcomes}
+\begin{tabular}{|p{0.9cm}|p{4.6cm}|p{4.2cm}|p{1.4cm}|}
+\hline
+\textbf{TC} & \textbf{Scenario} & \textbf{Expected Result} & \textbf{Status} \\
+\hline
+1 & Submit detailed candidate description for resume generation & Structured resume data returned and displayed in editor & Pass \\
+\hline
+2 & Generate resume with job description included & Tailoring information reflects target role context & Pass \\
+\hline
+3 & Upload PDF or DOCX resume for rating & File is parsed and ATS-style feedback is shown & Pass \\
+\hline
+4 & Export generated resume to PDF & Downloaded PDF contains selected template output & Pass \\
+\hline
+5 & Sign up and sign in with valid credentials & User session created and protected pages accessible & Pass \\
+\hline
+6 & Save generated resume to profile & Saved resume appears in profile history & Pass \\
+\hline
+7 & Search live jobs with filters & Job list and related metadata are returned & Pass \\
+\hline
+8 & Generate interview questions for a target role & Role-relevant questions are displayed with answers or guidance & Pass \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Module-wise validation summary}
+\begin{tabular}{|p{3.6cm}|p{5.7cm}|p{2.9cm}|}
+\hline
+\textbf{Module} & \textbf{Validation Focus} & \textbf{Result} \\
+\hline
+Authentication & Sign up, sign in, logout, session header usage & Stable \\
+\hline
+Resume generation & Structured output, UI mapping, editable data model & Stable \\
+\hline
+Template preview & Data rendering across alternative templates & Stable \\
+\hline
+PDF export & Final file generation and layout preservation & Stable \\
+\hline
+ATS rating & File parsing, keyword checks, suggestions & Stable with valid text files \\
+\hline
+Profile storage & Save and reload prior resume versions & Stable \\
+\hline
+Live jobs & Search filters and external response handling & Dependent on upstream availability \\
+\hline
+Interview questions & Role relevance and output completeness & Stable with model availability \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Observed Defects and Handling}
+\noindent During testing, the major risk areas were not ordinary UI clicks but integration boundaries. AI generation may fail if the local model runtime is not available, external job searches may return empty or delayed results, and uploaded files may not contain clean extractable text. These issues were handled by defensive error messages, fallback paths, and validation checks so the system remains understandable to the user even when a dependency fails.
+
+\begin{table}[H]
+\centering
+\caption{Representative defects and resolutions}
+\begin{tabular}{|p{3.8cm}|p{4.5cm}|p{3.9cm}|}
+\hline
+\textbf{Observed Issue} & \textbf{Impact} & \textbf{Handling / Resolution} \\
+\hline
+AI runtime unavailable & Resume generation cannot complete & User-facing service unavailable message shown \\
+\hline
+Weak or too-short prompt & Output quality is low or incomplete & Minimum content expectation and manual editing retained \\
+\hline
+Unsupported or malformed upload & Rating workflow fails & File validation and readable upload error response \\
+\hline
+Expired session token & Save/profile request rejected & Protected route flow and re-login handling \\
+\hline
+External jobs API delay & Slow or empty jobs list & Response messaging and modular service isolation \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Acceptance Summary}
+\noindent The project satisfies its main acceptance criteria: it can generate structured resumes, allow manual refinement, support template-based PDF export, analyze uploaded resumes, persist saved resumes for signed-in users, and assist with jobs and interview preparation. The most important outcome from testing is that the application behaves as a connected workflow rather than a set of unrelated features.
+
+\noindent Testing showed that the main workflows are stable when valid input is supplied. The most sensitive areas are AI response availability and external job feed dependencies. These are handled with fallback messaging so that the user is informed clearly instead of experiencing abrupt failures.

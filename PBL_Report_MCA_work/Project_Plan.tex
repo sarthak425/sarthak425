@@ -1,0 +1,66 @@
+\section{Project Plan}
+\subsection{Project Estimate}
+\subsubsection{Reconciled Estimates}
+\begin{table}[H]
+\centering
+\caption{High-level project schedule}
+\begin{tabular}{|p{5.0cm}|p{3.2cm}|p{3.2cm}|}
+\hline
+\textbf{Activity} & \textbf{Planned Duration} & \textbf{Outcome} \\
+\hline
+Requirement analysis and feature selection & 1 week & Finalized module list and stack choice \\
+\hline
+Frontend structure and routing & 2 weeks & Core pages and navigation flow \\
+\hline
+Backend API and database modules & 2 weeks & Auth, resume, profile, and jobs endpoints \\
+\hline
+AI workflow integration & 1 week & Resume, email, and interview generation \\
+\hline
+Testing and refinement & 1 week & Error handling, validation, and content review \\
+\hline
+Documentation and report preparation & 1 week & Final report and project packaging \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsubsection{Project Resources}
+\begin{itemize}
+\item Development resources: Java 21, Maven, Node.js, npm, Vite, Spring Boot, and Git.
+\item AI resources: Ollama runtime and prompt templates for resume and interview tasks.
+\item Persistence resources: JPA repositories, relational database storage, and JSON serialization for saved resumes.
+\item Documentation resources: official framework documentation, internal README, and test outputs.
+\end{itemize}
+
+\subsection{Risk Management}
+\subsubsection{Risk Identification}
+\begin{itemize}
+\item AI model unavailability or slow local inference.
+\item Invalid uploaded files or unreadable resume content.
+\item Authentication or profile persistence failures.
+\item External live job data source changes or downtime.
+\item Output inconsistency when user input is too short or ambiguous.
+\end{itemize}
+
+\subsubsection{Risk Analysis}
+\noindent The highest risks are concentrated around AI dependency, external API dependency, and data quality. These do not usually affect static page rendering, but they directly affect the smart features that define the product value.
+
+\subsubsection{Overview of Risk Mitigation, Monitoring, Management}
+\begin{table}[H]
+\centering
+\caption{Risk mitigation summary}
+\begin{tabular}{|p{4.0cm}|p{3.4cm}|p{5.0cm}|}
+\hline
+\textbf{Risk} & \textbf{Impact} & \textbf{Mitigation} \\
+\hline
+Ollama service unavailable & High & Show service error, keep manual editing workflow available \\
+\hline
+Malformed upload files & Medium & Validate file types and provide readable upload error messages \\
+\hline
+Weak user prompts & Medium & Enforce minimum input and allow manual corrections after generation \\
+\hline
+External job API changes & Medium & Keep fallback source and isolate live job logic in service layer \\
+\hline
+Session/token expiry & Low to medium & Guard profile endpoints and redirect users to sign in again \\
+\hline
+\end{tabular}
+\end{table}
