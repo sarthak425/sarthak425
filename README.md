@@ -12,10 +12,6 @@
 </p>
 
 <p align="center">
-  <img src="./assets/profile-3d-hero.svg" alt="Animated 3D profile hero" />
-</p>
-
-<p align="center">
   <img src="https://img.shields.io/badge/Open%20to%20Work-0ea5e9?style=for-the-badge&logo=linkedin&logoColor=white" alt="Open to work" />
   <img src="https://img.shields.io/badge/Spring%20Boot-13c4a3?style=for-the-badge&logo=springboot&logoColor=white" alt="Spring Boot" />
   <img src="https://img.shields.io/badge/React-09131f?style=for-the-badge&logo=react&logoColor=61dafb" alt="React" />
@@ -28,67 +24,60 @@
 
 ---
 
-## 🚀 About Me
+<table align="center">
+  <tr>
+    <td width="60%">
+      <h2>🚀 About Me</h2>
+      <p>I am a passionate <b>Full Stack Java Developer</b> and <b>AI Enthusiast</b> dedicated to building modern, scalable, and intelligent web applications. I bridge the gap between robust backend architectures (Java, Spring Boot) and dynamic, interactive frontends (React), while integrating cutting-edge Artificial Intelligence and Machine Learning models to solve real-world problems.</p>
+      <ul>
+        <li>🔭 <b>Current Focus:</b> Creating production-grade full-stack applications with clean architectures and cloud-native practices.</li>
+        <li>⚡ <b>Learning:</b> Advanced system design, containerization (Docker, Kubernetes), and deep learning.</li>
+        <li>🤝 <b>Collaboration:</b> Open to internships, freelance projects, and collaborating on innovative software products.</li>
+      </ul>
+    </td>
+    <td width="40%" align="center">
+      <img src="./assets/profile-3d-hero.svg" alt="Animated 3D profile hero" width="100%" />
+    </td>
+  </tr>
+</table>
 
-I am a passionate **Full Stack Java Developer** and **AI Enthusiast** dedicated to building modern, scalable, and intelligent web applications. I bridge the gap between robust backend architectures (Java, Spring Boot) and dynamic, interactive frontends (React), while integrating cutting-edge Artificial Intelligence and Machine Learning models to solve real-world problems.
+---
 
-- 🔭 **Current Focus:** Creating production-grade full-stack applications with clean architectures and cloud-native practices.
-- ⚡ **Learning:** Advanced system design, containerization (Docker, Kubernetes), and deep learning.
-- 🤝 **Collaboration:** Open to internships, freelance projects, and collaborating on innovative software products.
+## 🏆 GitHub Trophies
+
+<p align="center">
+  <a href="https://github.com/ryo-ma/github-profile-trophy">
+    <img src="https://github-profile-trophy.vercel.app/?username=sarthak425&theme=tokyonight&no-frame=true&no-bg=true&margin-w=15" alt="GitHub Trophies" />
+  </a>
+</p>
 
 ---
 
 ## 💻 Tech Stack
 
-### 🗣️ Languages
-<p align="left">
-  <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java" />
-  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
-  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript" />
-  <img src="https://img.shields.io/badge/SQL-4479A1?style=for-the-badge&logo=postgresql&logoColor=white" alt="SQL" />
+<p align="center">
+  <b>Languages & Core</b><br><br>
+  <img src="https://skillicons.dev/icons?i=java,python,js,html,css" alt="Languages" />
 </p>
 
-### ⚙️ Backend
-<p align="left">
-  <img src="https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge&logo=spring-boot&logoColor=white" alt="Spring Boot" />
-  <img src="https://img.shields.io/badge/Spring_Security-6DB33F?style=for-the-badge&logo=spring-security&logoColor=white" alt="Spring Security" />
-  <img src="https://img.shields.io/badge/Hibernate-59666C?style=for-the-badge&logo=hibernate&logoColor=white" alt="Hibernate" />
-  <img src="https://img.shields.io/badge/REST_API-0052CC?style=for-the-badge&logo=rocket&logoColor=white" alt="REST API" />
+<p align="center">
+  <b>Frontend & Backend</b><br><br>
+  <img src="https://skillicons.dev/icons?i=spring,hibernate,react,tailwind,bootstrap,mysql,mongodb" alt="Frameworks and Databases" />
 </p>
 
-### 🎨 Frontend
-<p align="left">
-  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
-  <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS" />
-  <img src="https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white" alt="Bootstrap" />
-  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5" />
-  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3" />
+<p align="center">
+  <b>Tools & DevOps</b><br><br>
+  <img src="https://skillicons.dev/icons?i=git,github,vscode,idea,postman,docker" alt="Tools" />
 </p>
 
-### 🗄️ Database
-<p align="left">
-  <img src="https://img.shields.io/badge/MySQL-00758F?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL" />
-  <img src="https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB" />
-</p>
-
-### 🤖 AI & ML
-<p align="left">
+<p align="center">
+  <b>🤖 AI & ML Technologies</b><br><br>
   <img src="https://img.shields.io/badge/Spring_AI-6DB33F?style=for-the-badge&logo=spring&logoColor=white" alt="Spring AI" />
   <img src="https://img.shields.io/badge/Ollama-black?style=for-the-badge&logo=ollama&logoColor=white" alt="Ollama" />
   <img src="https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white" alt="OpenAI" />
   <img src="https://img.shields.io/badge/Scikit--learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white" alt="Scikit-learn" />
   <img src="https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white" alt="Pandas" />
   <img src="https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white" alt="NumPy" />
-</p>
-
-### 🛠️ Tools & DevOps
-<p align="left">
-  <img src="https://img.shields.io/badge/GIT-E44C30?style=for-the-badge&logo=git&logoColor=white" alt="Git" />
-  <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
-  <img src="https://img.shields.io/badge/VS_Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white" alt="VS Code" />
-  <img src="https://img.shields.io/badge/IntelliJ_IDEA-000000?style=for-the-badge&logo=intellij-idea&logoColor=white" alt="IntelliJ" />
-  <img src="https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=Postman&logoColor=white" alt="Postman" />
-  <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker" />
 </p>
 
 ---
@@ -129,8 +118,8 @@ Check out my interactive 3D web experience to view my projects, interactive time
 ## 📈 GitHub Statistics
 
 <p align="center">
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=sarthak425&theme=github_dark" alt="GitHub stats" width="45%" />
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=sarthak425&theme=github_dark" alt="Top languages" width="45%" />
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=sarthak425&theme=tokyonight" alt="GitHub stats" width="45%" />
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=sarthak425&theme=tokyonight" alt="Top languages" width="45%" />
 </p>
 
 <p align="center">
